@@ -1,4 +1,3 @@
-// lib/api/queries.ts
 import { useQuery, useMutation } from '@tanstack/react-query';
 import {
   getPokemonById,

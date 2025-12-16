@@ -1,4 +1,3 @@
-// hooks/useTableVirtualization.ts
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useRef } from 'react';
 import { DEFAULT_VIRTUALIZATION_CONFIG } from '@/types/table';

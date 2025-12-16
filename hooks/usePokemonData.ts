@@ -1,4 +1,3 @@
-// hooks/usePokemonData.ts
 import { usePokemonStore } from '@/store/pokemonStore';
 import { Pokemon } from '@/types/pokemon';
 
