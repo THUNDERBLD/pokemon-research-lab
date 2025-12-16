@@ -6,9 +6,11 @@ A high-performance web application for aggregating, analyzing, and manipulating 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-3.0+-38B2AC?style=for-the-badge&logo=tailwind-css)
 
+### NOTE -> First fetch may take some time to fetch all the data from the api but if you fetch again then it won't take much to complete.
+
 ## 🚀 Live Demo
 
-**[View Live Application →](YOUR_DEPLOYMENT_URL_HERE)**
+**[View Live Application →](https://pokemon-research-lab-five.vercel.app/)**
 
 ## ✨ Features
 
