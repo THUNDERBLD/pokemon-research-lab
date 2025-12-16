@@ -1,6 +1,7 @@
+// components/data-sources/SchemaMapper.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from '@/components/ui/Modal';
 import { Select } from '@/components/ui/Select';
 import { Button } from '@/components/ui/Button';
@@ -83,14 +84,14 @@ export function SchemaMapper() {
       .map((m) => m.mappedField)
       .filter((field): field is string => field !== null);
 
-    return POKEMON_MAPPABLE_FIELDS.filter((field) => !usedFields.includes(field.key));
+    return POKEMON_MAPPABLE_FIELDS.filter((field) => !usedFields.includes(String(field.key)));
   };
 
   return (
     <Modal isOpen={isOpen} onClose={closeModal} title="Map CSV Columns" size="xl">
       <div className="space-y-4">
-        <div className="p-4 bg-black border rounded-md">
-          <p className="text-sm text-white">
+        <div className="p-4 bg-blue-50 border border-blue-200 rounded-md">
+          <p className="text-sm text-blue-800">
             Map your CSV columns to Pokemon fields. Required fields are marked with an asterisk (*).
           </p>
         </div>
@@ -98,33 +99,33 @@ export function SchemaMapper() {
         {/* Mapping Table */}
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-black text-white">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium  uppercase">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase">
                   CSV Column
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase">
                   Maps to
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium uppercase">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-700 uppercase">
                   Data Type
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-black divide-y divide-gray-200">
+            <tbody className="bg-white divide-y divide-gray-200">
               {mappings.map((mapping, index) => {
                 const availableFields = getAvailableFields(index);
                 const options = [
                   { value: '', label: '-- Do not map --' },
                   ...availableFields.map((field) => ({
-                    value: field.key,
+                    value: String(field.key),
                     label: `${field.label}${field.required ? ' *' : ''}`,
                   })),
                 ];
 
                 return (
                   <tr key={index}>
-                    <td className="px-4 py-3 text-sm font-medium text-white">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">
                       {mapping.csvHeader}
                     </td>
                     <td className="px-4 py-3">
@@ -135,7 +136,7 @@ export function SchemaMapper() {
                         placeholder="Select field..."
                       />
                     </td>
-                    <td className="px-4 py-3 text-sm text-white">
+                    <td className="px-4 py-3 text-sm text-gray-600">
                       {mapping.mappedField ? mapping.dataType : '-'}
                     </td>
                   </tr>

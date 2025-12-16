@@ -50,13 +50,13 @@ export function TableRow({ pokemon, columns, onUpdate, style }: TableRowProps) {
       );
     }
 
-    // Editable cell
+    // Editable cell - Cast accessorKey to string
     return (
       <EditableCell
         value={value}
         type={column.type}
         editable={column.editable}
-        onSave={(newValue) => onUpdate(pokemon.id, column.accessorKey, newValue)}
+        onSave={(newValue) => onUpdate(pokemon.id, String(column.accessorKey), newValue)}
       />
     );
   };
